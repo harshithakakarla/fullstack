@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/style.css">
+    <title>Expense Summary</title>
+</head>
+<body>
+
+<h2>Salary & Expense Summary</h2>
+
+<p><b>Total Salary:</b> ₹<%= salary %></p>
+<p><b>Total Expense:</b> ₹<%= totalExpense %></p>
+<p><b>Remaining Balance:</b> ₹<%= remaining %></p>
+
+<hr>
+
+<h3>All Expenses</h3>
+
+<table border="1" cellpadding="10">
+<tr>
+<th>Title</th>
+<th>Category</th>
+<th>Amount</th>
+<th>Action</th>
+</tr>
+
+<% expenses.forEach(function(exp){ %>
+
+<tr>
+<td><%= exp.title %></td>
+<td><%= exp.category %></td>
+<td>₹<%= exp.amount %></td>
+
+<td>
+<a href="/delete/<%= exp.id %>" 
+onclick="return confirm('Delete this expense?')">
+Delete
+</a>
+</td>
+
+</tr>
+
+<% }) %>
+
+</table>
+
+<br><br>
+
+<a href="/main">
+<button>Back</button>
+</a>
+
+</body>
+</html>
